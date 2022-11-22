@@ -1,18 +1,11 @@
-import express from 'express';
-// import { engine } from 'express-handlebars';
-// import fetch from 'node-fetch';
+import app from "./app.js";
 
-const app = express();
+const PORT = 3000;
 
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Hello from backend to frontend!');
-});
-
-app.post('/weather', (req, res) => {
-  const cityName = req.body.cityName;
-  res.json(cityName);
-});
-
-app.listen(3000);
+app.listen(PORT, (error) =>{
+  if(!error)
+      console.log("Server is Successfully Running, and App is listening on port "+ PORT)
+  else 
+      console.log("Error occurred, server can't start", error);
+  }
+);
